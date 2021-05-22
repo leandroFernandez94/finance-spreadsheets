@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import getSummary from './api/getSummary'
+import Layout, { siteTitle } from '../../components/layout'
+import getSummary from '../api/getSummary'
 import styles from './totals.module.scss';
 
 function renderShared(shared) {

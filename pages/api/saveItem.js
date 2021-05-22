@@ -29,7 +29,7 @@ export default async (req, res) => {
     const sheet = doc.sheetsByIndex[index]
 
     if (index === 2) {
-      sheet.addRow({
+      await sheet.addRow({
         'quien gasto': data.name,
         descripcion: data.description,
         valor: data.value
@@ -38,12 +38,12 @@ export default async (req, res) => {
     }
 
     if (data.type === 'entry') {
-      sheet.addRow({
+      await sheet.addRow({
         ingreso: data.description,
         'valor ingreso': data.value
       })
     } else {
-      sheet.addRow({
+      await sheet.addRow({
         gasto: data.description,
         'valor gasto': data.value
       })

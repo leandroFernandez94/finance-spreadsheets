@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import getSummary from './api/getSummary'
+import styles from './totals.module.scss';
 
 function renderShared(shared) {
   return (
@@ -17,7 +18,7 @@ function renderShared(shared) {
 function renderIndividualExpenses(name, data) {
   return (
     <div>
-      <h3>{name}</h3>
+      <h3 className={styles.name}>{name}</h3>
       <p>Ingreso: ${data.totalIncome}</p>
       <p>Gasto: ${data.totalExpent}</p>
       <p>Diferencia: ${data.diff}</p>

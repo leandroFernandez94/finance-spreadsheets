@@ -6,9 +6,8 @@ import Link from 'next/link';
 export default function Navbar() {
   const route = useRouter()
   const routeName = route.query?.name
-
   function isActive(name) {
-    return name === routeName
+    return name === routeName || name === route.pathname
   }
 
   return (
@@ -19,6 +18,9 @@ export default function Navbar() {
         </li>
         <li className={cn(styles.li, isActive('jazmin') && styles.active)}>
           <Link href="/user/jazmin">Jazmin</Link>
+        </li>
+        <li className={cn(styles.li, isActive('/totals') && styles.active)}>
+          <Link href="/totals">Totals</Link>
         </li>
       </ul>
     </nav>

@@ -13,12 +13,15 @@ function getSpreadSheetIndexByName(name, shared) {
 export default async (req, res) => {
   const data = JSON.parse(req.body)
 
+  console.log('setting doc')
   const doc = new GoogleSpreadsheet('1eSsbQy6NzhIc7vD3U_GYC3OzZScJpIy7ToTDAqDP1ts');
+  console.log('setting auth')
   await doc.useServiceAccountAuth({
     client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
     private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY.replace(/(\\r)|(\\n)/g, '\n'),
   });
 
+  console.log('loading info')
   await doc.loadInfo(); // loads document properties and worksheets
 
   const index = getSpreadSheetIndexByName(data.name, data.shared)

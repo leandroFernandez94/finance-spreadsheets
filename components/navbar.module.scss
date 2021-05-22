@@ -1,0 +1,30 @@
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  padding: 0;
+  display: flex;
+  justify-content: start;
+  align-items: stretch;
+}
+
+.li {
+  color: white;
+  margin-right: 0.5em;
+  padding: 20px 5px;
+  a{
+    padding: 20px 5px;
+    color: white;
+    text-decoration: none;
+  }
+
+  &.active {
+    background-color: white;
+    
+    a {
+      color: black
+    }
+  }
+}

@@ -18,8 +18,8 @@ export default async (req, res) => {
     const doc = new GoogleSpreadsheet('1eSsbQy6NzhIc7vD3U_GYC3OzZScJpIy7ToTDAqDP1ts');
     console.log('setting auth')
     await doc.useServiceAccountAuth({
-      client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-      private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY.replace(/(\\r)|(\\n)/g, '\n'),
+      client_email: `${JSON.parse(process.env.GOOGLE_SHEETS_CLIENT_EMAIL)}`,
+      private_key: `${JSON.parse(process.env.GOOGLE_SHEETS_PRIVATE_KEY)}`,
     });
 
     console.log('loading info')

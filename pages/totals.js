@@ -8,7 +8,6 @@ function renderShared(shared) {
       <h3>Gastos Compartido:</h3>
       <p>Leandro Gasto: ${shared.leandroExpent}</p>
       <p>Jazmin Gasto: ${shared.jazminExpent}</p>
-      <p>Jazmin Gasto: ${shared.jazminExpent}</p>
       <p>Deudor: {shared.debtor}</p>
       <p>Deuda: ${shared.debtAmmount}</p>
     </div>

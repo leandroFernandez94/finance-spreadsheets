@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }) {
           sizes="32x32"
         />
         <link rel="apple-touch-icon" href="/icon-192x192.png"></link>
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#f9f9f9" />
       </Head>
       <SWRConfig
         value={{

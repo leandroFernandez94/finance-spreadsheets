@@ -29,8 +29,8 @@ export default function App({ Component, pageProps }) {
           type="image/png"
           sizes="32x32"
         />
-        <link rel="apple-touch-icon" href="/icon-192x192.png"></link>
-        <meta name="theme-color" content="#f9f9f9" />
+        <link rel="apple-touch-icon" href="/maskable_icon.png"></link>
+        <meta name="theme-color" content="#000000" />
       </Head>
       <SWRConfig
         value={{

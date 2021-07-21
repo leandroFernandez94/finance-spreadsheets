@@ -1,5 +1,6 @@
-import { SWRConfig } from 'swr'
-import '../styles/global.css'
+import Head from "next/head";
+import { SWRConfig } from "swr";
+import "../styles/global.css";
 
 export default function App({ Component, pageProps }) {
   return (

@@ -1,0 +1,98 @@
+.nameHeader {
+  text-transform: capitalize;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 400px;
+
+  & > *:not(:last-child) {
+    margin-bottom: 1.5em
+  }
+}
+
+.formGroup {
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  &.inline {
+    flex-direction: row;
+    align-items: center;
+    
+    & > *:not(:last-child) {
+      margin-right: .75em
+    }
+
+    input[type=radio] {
+      margin-left: .4em;
+    }
+  }
+
+  input[type=text],
+  input[type=number] {
+    height: 2em;
+  }
+}
+
+
+.submit {
+  margin-top: 2em;
+  padding: 0.5em;
+}
+
+#isExpenseFilter {
+  width: 200px;
+  border-radius: .4em;
+  white-space: nowrap;
+  
+  
+  > .expenseFilterOption {
+    padding: .2em;
+    margin: 0;
+    text-align: center;
+    width: 50%;
+    background: #e6e3e3;
+    
+    &.active {
+      background: rgb(35, 163, 135);
+      border-color: rgb(35, 163, 135);
+      color: white;
+    }
+  }
+
+  > .expenseFilterOption:first-child {
+    border-top-left-radius: .4em;
+    border-bottom-left-radius: .4em;
+  }
+
+  > .expenseFilterOption:last-child {
+    border-top-right-radius: .4em;
+    border-bottom-right-radius: .4em;
+  }
+
+  > .expenseFilterOption input {
+    display: none;
+  }
+
+  > .expenseFilterOption input + label {
+    opacity: .4;
+  }
+
+  > .expenseFilterOption input:checked + label {
+    opacity: 1;
+  }
+}
+
+.dateContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.errorPhrase {
+  color: red;
+  font-size: .7rem;
+}

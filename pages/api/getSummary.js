@@ -5,11 +5,11 @@ function getCellsValue(cells) {
 }
 
 async function getTotalsFromSheet(sheet) {
-  await sheet.loadCells('G2:I2');
+  await sheet.loadCells('H2:J2');
   const cells = await Promise.all([
-    sheet.getCellByA1('G2'),
     sheet.getCellByA1('H2'),
-    sheet.getCellByA1('I2')
+    sheet.getCellByA1('I2'),
+    sheet.getCellByA1('J2')
   ])
 
   const [totalIncome, totalExpent, diff] = getCellsValue(cells)
@@ -18,12 +18,12 @@ async function getTotalsFromSheet(sheet) {
 }
 
 async function getSharedFromSheet(sheet) {
-  await sheet.loadCells('E2:H2');
+  await sheet.loadCells('F2:I2');
   const cells = await Promise.all([
-    sheet.getCellByA1('E2'),
     sheet.getCellByA1('F2'),
     sheet.getCellByA1('G2'),
-    sheet.getCellByA1('H2')
+    sheet.getCellByA1('H2'),
+    sheet.getCellByA1('I2')
   ])
 
   const [leandroExpent, jazminExpent, debtor, debtAmmount] = getCellsValue(cells)

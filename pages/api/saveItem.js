@@ -1,5 +1,5 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet'
-
+import moment from 'moment'
 const LEANDRO_INDEX = 0
 const JAZMIN_INDEX = 1
 const SHARED_INDEX = 2
@@ -26,6 +26,7 @@ export default async (req, res) => {
 
     if (index === SHARED_INDEX) {
       await sheet.addRow({
+        cuando: moment(data.selectedDate).format('DD/MM/YYYY'),
         'quien gasto': data.name,
         descripcion: data.description,
         valor: data.value
@@ -35,6 +36,7 @@ export default async (req, res) => {
 
     if (data.type === 'entry') {
       const newRow = {
+        cuando: moment(data.selectedDate).format('DD/MM/YYYY'),
         ingreso: data.description,
         'valor ingreso': data.value
       }
@@ -42,6 +44,7 @@ export default async (req, res) => {
       await sheet.addRow(newRow)
     } else {
       await sheet.addRow({
+        cuando: moment(data.selectedDate).format('DD/MM/YYYY'),
         gasto: data.description,
         'valor gasto': data.value
       })

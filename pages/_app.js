@@ -31,6 +31,10 @@ export default function App({ Component, pageProps }) {
         />
         <link rel="apple-touch-icon" href="/maskable_icon.png"></link>
         <meta name="theme-color" content="#000000" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/3.8.0/react-datepicker.min.css"
+        />
       </Head>
       <SWRConfig
         value={{

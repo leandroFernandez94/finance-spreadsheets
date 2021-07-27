@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import Layout, { siteTitle } from "../../components/layout";
 import styles from './[name].module.scss';
 import cn from 'classnames';

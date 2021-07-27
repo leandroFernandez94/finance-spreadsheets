@@ -39,19 +39,14 @@ export default function Home() {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    const [
-      { value: description },
-      { value },
-      { checked: isExpense }
-    ] = Array.from(e.target.elements)
-    const type = isExpense ? EXPENSE : ENTRY
+    e.preventDefault();
+    const [{ value: description }, { value }, { checked: isExpense }] =
+      Array.from(e.target.elements);
+    const type = isExpense ? EXPENSE : ENTRY;
 
-    console.log('asdasd', selectedDate)
-
-    if(!selectedDate) {
-      setError(error => ({...error, date: true}))
-      return
+    if (!selectedDate) {
+      setError((error) => ({ ...error, date: true }));
+      return;
     }
 
     try {
@@ -61,21 +56,21 @@ export default function Home() {
         type,
         name,
         selectedDate: selectedDate.toString(),
-        ...(type === EXPENSE ? { shared: isShared } : null)
-      })
+        ...(type === EXPENSE ? { shared: isShared } : null),
+      });
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   }
 
   function handleIsTodayChange() {
-    setIsToday(actual => !actual)
-    setSelectedDate(undefined)
+    setIsToday((actual) => !actual);
+    setSelectedDate(undefined);
   }
 
   function handleDateChange(date) {
-    setSelectedDate(moment(date))
-    setError(curr => ({...curr, date: undefined}))
+    setSelectedDate(moment(date));
+    setError((curr) => ({ ...curr, date: undefined }));
   }
 
   return (
@@ -93,13 +88,39 @@ export default function Home() {
           <label htmlFor="value">Valor:</label>
           <input type="number" id="value" required />
         </div>
-        <div id={styles.isExpenseFilter} className={cn(styles.formGroup, styles.inline)}>
-          <div className={cn(styles.expenseFilterOption, isExpense && styles.active)}>
-            <input defaultChecked onChange={handleTypeChange} type="radio" id="expense" name="action-type" value="expense"></input>
+        <div
+          id={styles.isExpenseFilter}
+          className={cn(styles.formGroup, styles.inline)}
+        >
+          <div
+            className={cn(
+              styles.expenseFilterOption,
+              isExpense && styles.active
+            )}
+          >
+            <input
+              defaultChecked
+              onChange={handleTypeChange}
+              type="radio"
+              id="expense"
+              name="action-type"
+              value="expense"
+            ></input>
             <label htmlFor="expense">es gasto</label>
           </div>
-          <div className={cn(styles.expenseFilterOption, !isExpense && styles.active)}>
-            <input onChange={handleTypeChange} type="radio" id="entry" name="action-type" value="entry"></input>
+          <div
+            className={cn(
+              styles.expenseFilterOption,
+              !isExpense && styles.active
+            )}
+          >
+            <input
+              onChange={handleTypeChange}
+              type="radio"
+              id="entry"
+              name="action-type"
+              value="entry"
+            ></input>
             <label htmlFor="entry">es ingreso</label>
           </div>
         </div>
@@ -109,45 +130,47 @@ export default function Home() {
               <label htmlFor="shared-expense">es compartido?</label>
               <input
                 checked={isShared}
-                onChange={() => setIsShared(actual => !actual)}
+                onChange={() => setIsShared((actual) => !actual)}
                 type="checkbox"
-                id="shared-expense">
-              </input>
+                id="shared-expense"
+              ></input>
             </div>
           </div>
         )}
-        <div className={cn(styles.formGroup)}>
+        <div className={cn(styles.formGroup, styles.flexStart)}>
           <div>
-            <label htmlFor="is-today">es un {isExpense ? 'gasto' : 'ingreso'} de hoy?</label>
+            <label htmlFor="is-today">
+              es un {isExpense ? "gasto" : "ingreso"} de hoy?
+            </label>
             <input
               checked={isToday}
               onChange={handleIsTodayChange}
               type="checkbox"
-              id="is-today">
-            </input>
+              id="is-today"
+            ></input>
           </div>
-          {
-            !isToday && (
-              <div className={styles.dateContainer}>
-                <DatePicker
-                selected={selectedDate && selectedDate.toDate()} 
+          {!isToday && (
+            <div className={styles.dateContainer}>
+              <DatePicker
+                selected={selectedDate && selectedDate.toDate()}
                 onChange={handleDateChange}
                 dateFormat="dd/MM/yyyy"
                 id="datepicker"
-                placeholderText={`fecha del ${isExpense ? 'gasto' : 'ingreso'}`}
-                />
-                {
-                  error && error.date && (
-                    <span className={styles.errorPhrase}>Falta agregar la fecha</span>
-                  )
-                }
-              </div>
-            )
-          }
+                placeholderText={`fecha del ${isExpense ? "gasto" : "ingreso"}`}
+              />
+              {error && error.date && (
+                <span className={styles.errorPhrase}>
+                  Falta agregar la fecha
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
-        <button className={styles.submit} type="submit">Aceptar</button>
+        <button className={styles.submit} type="submit">
+          Aceptar
+        </button>
       </form>
     </Layout>
-  )
+  );
 }

@@ -156,6 +156,7 @@ export default function Home() {
                 dateFormat="dd/MM/yyyy"
                 id="datepicker"
                 placeholderText={`fecha del ${isExpense ? "gasto" : "ingreso"}`}
+                disabledKeyboardNavigation
               />
               {error && error.date && (
                 <span className={styles.errorPhrase}>

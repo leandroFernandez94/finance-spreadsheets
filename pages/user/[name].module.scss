@@ -101,3 +101,7 @@
 .flexStart {
   align-items: flex-start;
 }
+
+:global(.react-datepicker__navigation-icon) {
+  width: 0;
+}
